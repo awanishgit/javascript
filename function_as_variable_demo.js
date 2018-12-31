@@ -82,7 +82,7 @@ var calculate = function (x) {
 console.log(calculate(1)(2)(3));
 
 // Another crazy example
-console.log("================Another crazy exampe =========================");
+console.log("================Another crazy example =========================");
 
 var bankStatement =
       name =>
