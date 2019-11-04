@@ -4,8 +4,10 @@
  * language, a function can be passed as an argument to other functions, can be
  * returned by another function and can be assigned as a value to a variable.
  */
-var variableFunction  = () => console.log("Hello Javascript first class function.");
+var variableFunction = () => console.log("Hello Javascript first class function.");
 variableFunction();
+
+// Output - Hello Javascript first class function.
 
 //Functions as values of keys of an object
 
@@ -17,12 +19,15 @@ var functionObject = {
 
 functionObject.print("Function Object.");
 
+// Output - Function Object.
+
+
 // Another way
 var secondFunctionObject = {
-    printValue: function(value) {
+    printValue: function (value) {
         console.log(value);
     },
-    increaseValue: function(value) {
+    increaseValue: function (value) {
         value = parseInt(value) + 1;
         console.log(value);
     }
@@ -32,43 +37,55 @@ var secondFunctionObject = {
 secondFunctionObject.printValue("Another way function object");
 secondFunctionObject.increaseValue(10);
 
+// Output - Another way function object
+//        - 11
+
+
 //Higher order function
 
-var add = (x,y) => x + y;
-var subtract = (x,y) => x - y;
-var multiply = (x,y) => x * y;
+var add = (x, y) => x + y;
+var subtract = (x, y) => x - y;
+var multiply = (x, y) => x * y;
 
 var arrayOfFunctions = [add, subtract, multiply];
 
-arrayOfFunctions.forEach(calculationFunction => console.log(calculationFunction(1,1))); // 2 0 1
+arrayOfFunctions.forEach(calculationFunction => console.log(calculationFunction(1, 1))); // 2 0 1
+
+// Output - 2 0 1
 
 // simple example of for each
-var intArray = [1,2,3];
+var intArray = [1, 2, 3];
 
-intArray.forEach(function(value) {
+intArray.forEach(function (value) {
     console.log(value);
 });
 
+// Output - 1 2 3
+
 console.log("=============================================================");
 
-var addWrapper = () => (x,y) => x + y;
+var addWrapper = () => (x, y) => x + y;
 
 var add = addWrapper();
 
-var sum1 = add (1,2); // 3
+var sum1 = add(1, 2);
+
+// 3
 
 // Or we could do it like this
-var sum2 = addWrapper()(4,4); // 8
+var sum2 = addWrapper()(4, 4); // 8
 console.log(sum2);
 
 // Another way of
-var addWrapper2 = function() {
-    return function (x,y) {
+var addWrapper2 = function () {
+    return function (x, y) {
         return x + y;
     }
 }
-var sum3 = addWrapper2()(5,5);
+var sum3 = addWrapper2()(5, 5);
 console.log(sum3);
+
+// Output - 10
 
 // Another example
 
@@ -85,10 +102,10 @@ console.log(calculate(1)(2)(3));
 console.log("================Another crazy example =========================");
 
 var bankStatement =
-      name =>
+    name =>
         location =>
-          balance =>
-            `Hello ${name}! Welcome to the bank of ${location}. Your current balance is ${balance}`;
+            balance =>
+                `Hello ${name}! Welcome to the bank of ${location}. Your current balance is ${balance}`;
 
 var statementExpectingLocation = bankStatement("Omer");
 var statementExpectingBalance = statementExpectingLocation("NYC");
